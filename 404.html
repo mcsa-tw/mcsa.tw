@@ -14,17 +14,20 @@
 		body {
 			background: #333;
 			text-align: center;
-			font-size: 16px
+			font-size: 16px;
+			margin: 0;
+			padding: 0;
 		}
 		#title {
 			text-align: center;
+			padding-top: 5vh;
 		}
 		#title img {
 			width: 80px;
 			border-radius: 50%;
 		}
 		#main {
-			padding: calc(45vh - 10em) 0
+			/*padding: calc(45vh - 11em) 0*/
 		}
 		h1 {
 			font-size: 1.2em;
@@ -52,22 +55,29 @@
 		a {
 			color: #fff;
 		}
+		footer {
+			color: #aaa;
+			font-size: 80%;
+		}
 	</style>
+	<script>
+		document.addEventListener('DOMContentLoaded', function(event) {
+			document.getElementById("main").style.padding = (window.innerHeight - document.getElementById("title").offsetHeight - document.getElementById("footer").offsetHeight - document.getElementById("main").offsetHeight)/2-50 + 'px 0';
+		});
+	</script>
 </head>
 <body>
-	<div style="padding-top: 5vh;">
-		<div id="title">
-			<img src="/res/img/logo-s.jpg" />
-			<h1>明志科技大學學生會</h1>
-		</div>
-		<div id="main">
-			<h2>找不到您指定的網頁！</h2>
-			<p>此連結可能已過期或失效。</p>
-			<br />
-			<br />
-			<a id="back" href="/">回首頁</a>
-		</div>
-	</div>
-	<small style="color: #aaa; font-size: 80%;">Made by <a href="https://henrywu.tw">Henry Wu</a> / &copy; MCSA</small>
+	<header id="title">
+		<img src="/res/img/logo-s.jpg" />
+		<h1>明志科技大學學生會</h1>
+	</header>
+	<main id="main">
+		<h2>找不到您指定的網頁！</h2>
+		<p>此連結可能已過期或失效。</p>
+		<br />
+		<br />
+		<a id="back" href="/">回首頁</a>
+	</main>
+	<footer id="footer">&copy; MCSA</footer>
 </body>
 </html>
