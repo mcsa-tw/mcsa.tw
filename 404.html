@@ -56,8 +56,45 @@
 			color: #fff;
 		}
 		footer {
-			color: #aaa;
+			color: #CCC;
 			font-size: 80%;
+		}
+		@font-face{
+			font-family:icomoon;
+			src:url(res/fonts/icomoon.eot?v200626_1);
+			src:url(res/fonts/icomoon.eot?v200626_1#iefix) format('embedded-opentype'),url(res/fonts/icomoon.ttf?v200626_1) format('truetype'),url(res/fonts/icomoon.woff?v200626_1) format('woff'),url(res/fonts/icomoon.svg?v200626_1#icomoon) format('svg');
+			font-weight:400;
+			font-style:normal;
+			font-display:block
+		}
+		i{
+			font-family:icomoon!important;
+			speak:none;
+			font-style:normal;
+			font-weight:400;
+			font-variant:normal;
+			text-transform:none;
+			line-height:1;
+			-webkit-font-smoothing:antialiased;
+			-moz-osx-font-smoothing:grayscale
+		}
+		.i-mail:before{
+			content:"\e901"
+		}
+		.i-fb:before{
+			content:"\ea90"
+		}
+		.i-ig:before{
+			content:"\ea92"
+		}
+		.i-yt:before{
+			content:"\ea9d"
+		}
+		footer #icons a{
+			font-size:2.2em;
+			color:#aaa;
+			text-decoration:none;
+			margin:4px
 		}
 	</style>
 	<script>
@@ -78,6 +115,13 @@
 		<br />
 		<a id="back" href="/">回首頁</a>
 	</main>
-	<footer id="footer">&copy; MCSA</footer>
+	<footer id="footer">
+		<div id="icons">
+			<a href="https://www.instagram.com/mcut_mcsa/"><i class="i-ig"></i></a>
+			<a href="https://www.facebook.com/mcut.mcsa/" id="link-fb"><i class="i-fb"></i></a>
+			<a href="https://www.youtube.com/channel/UC8E8FC21lHveJ7wyN6gPJWw"><i class="i-yt"></i></a>
+		</div>
+		&copy; MCSA
+	</footer>
 </body>
 </html>
