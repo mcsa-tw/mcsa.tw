@@ -38,7 +38,8 @@
 		}
 	</style>
 	<script>
-		function change(e) {
+		function changeValue(e) {
+			console.log(e);
 			if(e.name == 'filename') document.getElementsByTagName('filename').value = e.value + '.html';
 			if(e.name == 'value') document.getElementsByTagName('value').value = '<meta http-equiv="refresh" content="0;url=' + e.value + 'ooo">';
 		}
@@ -53,11 +54,11 @@
 			<form class="ts form" method="get" action="https://github.com/mcsa-tw/mcsa.tw/new/main">
 				<div class="field">
 					<label>要縮短的網址</label>
-					<input name="url" required="required" autofocus="autofocus" type="url" onchange="change(this)">
+					<input name="url" required="required" autofocus="autofocus" type="url" oninput="changeValue(this)">
 				</div>
 				<div class="field">
 					<label>短網址後綴</label>
-					<input name="short" required="required" placeholder="要放在 mcsa.tw/ 後面的短文字" onchange="change(this)">
+					<input name="short" required="required" placeholder="要放在 mcsa.tw/ 後面的短文字" oninput="changeValue(this)">
 				</div>
 				<input type="hidden" name="filename" value="">
 				<input type="hidden" name="value" value="">
