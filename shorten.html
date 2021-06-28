@@ -39,9 +39,11 @@
 	</style>
 	<script>
 		function changeValue(e) {
-			console.log(e);
-			if(e.name == 'filename') document.getElementsByTagName('filename').value = e.value + '.html';
-			if(e.name == 'value') document.getElementsByTagName('value').value = '<meta http-equiv="refresh" content="0;url=' + e.value + 'ooo">';
+			console.log(e.value);
+			console.log(e.name);
+			if(e.name == 'short') document.getElementsByName('filename')[0].value = e.value + '.html';
+			if(e.name == 'url') document.getElementsByName('value')[0].value = '<meta http-equiv="refresh" content="0;url=' + e.value + '">';
+			if(e.name == 'info') document.getElementsByName('message')[0].value = '[短網址] ' + e.value;
 		}
 	</script>
 </head>
@@ -51,17 +53,25 @@
 		<br><br>
 		<div class="ts raised segment">
 			<div class="ts large center aligned header" style="margin-top:20px">mcsa.tw 短網址</div><br>
-			<form class="ts form" method="get" action="https://github.com/mcsa-tw/mcsa.tw/new/main">
+			<div class="ts form">
 				<div class="field">
 					<label>要縮短的網址</label>
-					<input name="url" required="required" autofocus="autofocus" type="url" oninput="changeValue(this)">
+					<input name="url" required="required" placeholder="須包含 http:// 或 https://" autofocus="autofocus" type="url" oninput="changeValue(this)">
 				</div>
 				<div class="field">
 					<label>短網址後綴</label>
 					<input name="short" required="required" placeholder="要放在 mcsa.tw/ 後面的短文字" oninput="changeValue(this)">
 				</div>
-				<input type="hidden" name="filename" value="">
-				<input type="hidden" name="value" value="">
+				<div class="field">
+					<label>說明</label>
+					<input name="info" required="required" placeholder="這是什麼的短網址？" oninput="changeValue(this)">
+				</div>
+			</div>
+			<br><br>
+			<form method="get" action="https://github.com/mcsa-tw/mcsa.tw/new/main">
+				<input type="hidden" name="filename">
+				<input type="hidden" name="value">
+				<input type="hidden" name="message">
 				<button style="margin-bottom:8px" class="ts fluid button">送出</button><br>
 			</form>
 		</div>
