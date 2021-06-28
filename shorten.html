@@ -38,12 +38,23 @@
 		}
 	</style>
 	<script>
+		String.prototype.trim = function (char) {
+			if (char) return this.replace(new RegExp('^\\'+char+'+|\\'+char+'+$', 'g'), '');
+			return this.replace(/^\s |\s $/g, '');
+		};
 		function changeValue(e) {
-			console.log(e.value);
-			console.log(e.name);
-			if(e.name == 'short') document.getElementsByName('filename')[0].value = e.value + '.html';
-			if(e.name == 'url') document.getElementsByName('value')[0].value = '<meta http-equiv="refresh" content="0;url=' + e.value + '">';
-			if(e.name == 'info') document.getElementsByName('message')[0].value = '[短網址] ' + e.value;
+			if(e.name == 'short') document.getElementsByName('filename')[0].value = e.value.trim('/') + '.html';
+			if(e.name == 'url') document.getElementsByName('value')[0].value = '<meta http-equiv="refresh" content="0;url=' + e.value.trim() + '">';
+			if(e.name == 'info') document.getElementsByName('message')[0].value = '[短網址] ' + e.value.trim();
+		}
+
+		function sendForm(e) {
+			if(document.getElementsByName('url')[0].value == '') return alert('請填寫要縮短的網址');
+			else if(!document.getElementsByName('url')[0].checkValidity()) return alert('要縮短的網址格式錯誤');
+			else if(document.getElementsByName('short')[0].value == '') return alert('請填寫短網址後綴');
+			else if(document.getElementsByName('info')[0].value == '') return alert('請填寫說明');
+			else document.getElementById('realform').submit();
+
 		}
 	</script>
 </head>
@@ -68,11 +79,12 @@
 				</div>
 			</div>
 			<br><br>
-			<form method="get" action="https://github.com/mcsa-tw/mcsa.tw/new/main">
+			<form method="get" action="https://github.com/mcsa-tw/mcsa.tw/new/main" id="realform">
 				<input type="hidden" name="filename">
 				<input type="hidden" name="value">
 				<input type="hidden" name="message">
-				<button style="margin-bottom:8px" class="ts fluid button">送出</button><br>
+				<button style="margin-bottom:8px" class="ts fluid button" type="button" onclick="sendForm(this)">送出</button><br>
+				送出後記得去按最底下的 "Commit new file"
 			</form>
 		</div>
 	</div>
