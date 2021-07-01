@@ -240,8 +240,7 @@ input, select, textarea {
 		font-weight: 300;
 		letter-spacing: 0.1em;
 		line-height: 1.5;
-		margin: 0 0 1em 0;
-		text-transform: uppercase;
+		margin: 0 0 1em 0
 	}
 
 		h1 a, h2 a, h3 a, h4 a, h5 a, h6 a {
@@ -1096,8 +1095,9 @@ input, select, textarea {
 			}
 
 				.panel > .inner.split > div {
-					margin-left: 4em;
-					width: 50%;
+					//margin-left: 4em;
+					width: 33.3333%;
+					text-align: center;
 				}
 
 				.panel > .inner.split > :first-child {
@@ -1705,7 +1705,8 @@ input, select, textarea {
 			-ms-transition-delay: 2.525s;
 			transition-delay: 2.525s;
 			height: calc(33.3333vh - 1.33em);
-			width: 25%;
+			/*min-height: 20em;*/
+			width: 33.3333%;
 		}
 
 			#main .thumb:nth-child(1) {
@@ -1799,9 +1800,9 @@ input, select, textarea {
 				-webkit-transition-delay: 2.075s;
 				-ms-transition-delay: 2.075s;
 				transition-delay: 2.075s;
-				//height: calc(40vh - 2em);
-				//min-height: 20em;
-				//width: 33.33333%;
+				height: calc(33.3333vh - 1.33em);
+				/*min-height: 20em;*/
+				width: 33.33333%;
 			}
 
 				#main .thumb:nth-child(1) {
@@ -1876,9 +1877,9 @@ input, select, textarea {
 				-webkit-transition-delay: 1.625s;
 				-ms-transition-delay: 1.625s;
 				transition-delay: 1.625s;
-				height: calc(40vh - 2em);
+				height: calc(33.3333vh - 1.4em);
 				min-height: 20em;
-				width: 50%;
+				width: 33.3333%;
 			}
 
 				#main .thumb:nth-child(1) {
@@ -1932,9 +1933,13 @@ input, select, textarea {
 				-webkit-transition-delay: 2.075s;
 				-ms-transition-delay: 2.075s;
 				transition-delay: 2.075s;
-				height: calc(28.57143vh - 1.33333em);
+				height: calc(20vh - 1.33333em);
 				min-height: 18em;
 				width: 50%;
+			}
+
+			#main .thumb.vid {
+				width: 100%;
 			}
 
 				#main .thumb:nth-child(1) {
