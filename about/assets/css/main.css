@@ -3672,17 +3672,17 @@
 
 			.post .content .postnav {
 				position: absolute;
-				left: 2em;
-				bottom: 8em;
+				left: 20px;
+				bottom: 250px;
 			}
 
 				.post .content .postnav .prev, .post .content .postnav .next {
 					text-decoration: none;
 					display: block;
-					border: 1px solid rgba(144, 144, 144, 0.25);
-					width: 2em;
-					height: 2em;
-					line-height: 2em;
+					border: 2.5px solid rgba(144, 144, 144, 0.25);
+					width: 4em;
+					height: 4em;
+					line-height: 4em;
 					text-align: center;
 				}
 
@@ -3735,7 +3735,7 @@
 		}
 
 			.post.alt .content .postnav {
-				right: 2em;
+				right: 5em;
 				left: initial;
 			}
 
