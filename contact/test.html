@@ -1,0 +1,60 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<title>聯絡資訊</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+		<link rel="icon" href="img/logo-s.jpg">
+		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+	</head>
+	<body class="is-preload">
+		<!-- Wrapper -->
+			<div id="wrapper">
+				<!-- Main -->
+					<section id="main">
+						<header>
+							<span class="avatar"><img src="img/logo-s.jpg" alt="" /></span>
+						</header>
+					</section>
+
+				<!-- Footer -->
+					<footer id="footer">
+						<div class="copyright">
+					Copyright &copy; <script>document.write(new Date().getFullYear());</script> MCSA 保留一切權利
+			  </div>
+					</footer>
+
+			</div>
+
+		<!-- Scripts -->
+			<script>
+				if ('addEventListener' in window) {
+					window.addEventListener('load', function() {
+						document.body.className = document.body.className.replace(/\bis-preload\b/, '');
+						
+						let member = {
+							"CHIA-HSIEN" : ["中文名字","英文名字","職稱","電話","LINE","電子郵件"],
+							"ID2" : ["中文名字","英文名字","職稱","電話","LINE","電子郵件"],
+							"ID3" : ["中文名字","英文名字","職稱","電話","LINE","電子郵件"]
+						}; // 清單 (json 格式)
+
+						id = location.hash.replace('#',''); // 找到網址 # 後面的值
+
+						// 如果搜尋到了 就將以下內容插入到中間區塊
+						if(member[id]) document.getElementsByTagName('header')[0].innerHTML += '\
+							<h1>'+member[id][0]+'<h1>\
+							<h2>'+member[id][1]+'<h2>\
+							<p>'+member[id][2]+'<p>\
+							<a href="tel:'+member[id][3]+'" class="fas fa-phone-alt">行動電話</a><br/>\
+							<a href="line://ti/p/'+member[id][4]+'" class="fab fa-line">Line </a><br/>\
+							<a href="mailto:'+member[id][5]+'" class="fas fa-envelope">電子郵件</a>';
+						else location.href = '/about';
+						// 否則回到 /about 頁面
+					});
+					document.body.className += (navigator.userAgent.match(/(MSIE|rv:11\.0)/) ? ' is-ie' : '');
+				}
+			</script>
+
+	</body>
+</html>
