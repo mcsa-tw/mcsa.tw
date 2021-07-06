@@ -189,18 +189,21 @@
 						};
 
 						id = location.hash.replace('#','');
-						if(member[id]) document.getElementsByTagName('header')[0].innerHTML += '\
-							<h1>'+member[id]['n']+'</h1>\
-							<p>'+member[id]['j']+'</p>\
-							<a href="https://line.me/ti/p/'+member[id]['l']+'">\
-								<i class="fab fa-line"></i>\
-							LINE </a><br/>\
-							<a href="tel:'+member[id]['p']+'">\
-								<i class="fas fa-phone-alt"></i>\
-							'+member[id]['p']+'</a><br/>\
-							<a href="mailto:'+member[id]['m']+'">\
-								<i class="fas fa-envelope"></i>\
-							'+member[id]['m']+'</a>';
+						if(member[id]) {
+							document.getElementsByTagName('header')[0].innerHTML += '\
+								<h1>'+member[id]['n']+'</h1>\
+								<p>'+member[id]['j']+'</p>\
+								<a href="https://line.me/ti/p/'+member[id]['l']+'">\
+									<i class="fab fa-line"></i>\
+								LINE </a><br/>\
+								<a href="tel:'+member[id]['p']+'">\
+									<i class="fas fa-phone-alt"></i>\
+								'+member[id]['p']+'</a><br/>\
+								<a href="mailto:'+member[id]['m']+'">\
+									<i class="fas fa-envelope"></i>\
+								'+member[id]['m']+'</a>';
+							document.getElementsByTagName('title')[0].innerHTML = member[id]['j'] + ' ' + member[id]['n'] + ' | 聯絡資訊';
+						}
 						else location.href = '/about';
 					});
 					document.body.className += (navigator.userAgent.match(/(MSIE|rv:11\.0)/) ? ' is-ie' : '');
