@@ -12,11 +12,12 @@
 			'-webkit-filter #{_duration(panel)} ease',
 			'-ms-filter #{_duration(panel)} ease',
 			'filter #{_duration(panel)} ease'
+			
 		));
 		@include vendor('display', 'flex');
 		@include vendor('flex-wrap', 'wrap');
 		-webkit-tap-highlight-color: rgba(255,255,255,0);
-
+	
 		.thumb {
 			@include vendor('transition', (
 				'opacity 1.25s ease-in-out'
