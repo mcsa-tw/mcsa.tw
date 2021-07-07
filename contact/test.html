@@ -91,7 +91,7 @@
 					let member = members.filter(function(v, i, members){
 						return v.i == id;
 					})[0];
-					if(member) {
+					if(member && member.n != '' && member.j != '') {
 						document.getElementsByTagName('header')[0].innerHTML += '\
 						<h1>'+member.n+'</h1>\
 						<p>'+member.j+'</p>\
