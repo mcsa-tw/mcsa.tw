@@ -7,6 +7,7 @@
 	<link rel="stylesheet" href="assets/css/main.css" />
 	<style>
 	body {
+		font-weight: 400 !important;
 		font-size: 17px !important;
 		letter-spacing: 0.1em !important;
 	}
@@ -78,8 +79,6 @@
 		<script>
 			if ('addEventListener' in window) {
 				window.addEventListener('load', function() {
-					document.body.className = document.body.className.replace(/\bis-preload\b/, '');
-
 					let member = {
 						"TING-YI": {
 							"n": "林廷奕",
@@ -245,10 +244,11 @@
 						<i class="fas fa-envelope"></i>\
 						'+member[id]['m']+'</a>';
 						document.getElementsByTagName('title')[0].innerHTML = member[id]['j'] + ' ' + member[id]['n'] + ' | 聯絡資訊';
+						document.body.className = document.body.className.replace(/\bis-preload\b/, '');
 					}
 					else location.href = '/about';
 				});
-document.body.className += (navigator.userAgent.match(/(MSIE|rv:11\.0)/) ? ' is-ie' : '');
+				document.body.className += (navigator.userAgent.match(/(MSIE|rv:11\.0)/) ? ' is-ie' : '');
 }
 </script>
 </body>
