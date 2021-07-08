@@ -1,0 +1,13 @@
+name: contact_generator
+description: Contact generator
+author: itshenrywu
+branding:
+  icon: link
+  color: blue
+inputs:
+  token:
+    description: The github token
+    required: true
+runs:
+  using: 'node12'
+  main: 'dist/index.js'
