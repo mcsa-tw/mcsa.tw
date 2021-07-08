@@ -20,7 +20,6 @@ const ORHPAN_SHA = '4b825dc642cb6eb9a060e54bf8d69288fbee4904'
 })()
 
 async function onIssue (client, repo, { action, label, issue }) {
-	console.log(issue);
 	if (issue.state !== 'open'||
 		issue.title !== 'generate_contact' ||
 		(
@@ -117,7 +116,7 @@ async function onIssue (client, repo, { action, label, issue }) {
 		})
 	}
 
-	var commentContent = '### 已建立 '+ result.length +' 個頁面。\n| 職稱 | 姓名 | 網址 |\n| :---: | :---: | :--- |';
+	var commentContent = '### 已建立 '+ result.length +' 個頁面，請刪除此 Issue。\n| 職稱 | 姓名 | 網址 |\n| :---: | :---: | :--- |';
 	for (var i = 0; i < result.length; i++) {
 		commentContent += `\n| ${result[i].j} | ${result[i].n} | https://mcsa.tw/contact/${result[i].i} |`;
 	}
