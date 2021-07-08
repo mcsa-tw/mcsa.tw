@@ -21,9 +21,14 @@ const ORHPAN_SHA = '4b825dc642cb6eb9a060e54bf8d69288fbee4904'
 
 async function onIssue (client, repo, { action, label, issue }) {
 	console.log(issue);
-	if (issue.state !== 'open' || issue.title !== 'generate_contact') {
-		return
-	}
+	if (issue.state !== 'open'||
+		issue.title !== 'generate_contact' ||
+		(
+			issue.author_association !== 'OWNER' &&
+			issue.author_association !== 'MEMBER' &&
+			issue.author_association !== 'COLLABORATOR'
+		)
+	) { return }
 	const { title, body, number } = issue
 	const { owner, repo: name } = repo
 	const [firstLine, secondLine, ...restLines] = body.split('\n')
