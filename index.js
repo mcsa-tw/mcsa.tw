@@ -20,6 +20,8 @@ const ORHPAN_SHA = '4b825dc642cb6eb9a060e54bf8d69288fbee4904'
 })()
 
 async function onIssue (client, repo, { action, label, issue }) {
+	const { title, body, number } = issue
+	const { owner, repo: name } = repo
 	if (issue.state !== 'open') { return }
 	if (issue.title !== 'generate_contact') {
 		return
@@ -46,8 +48,6 @@ async function onIssue (client, repo, { action, label, issue }) {
 			content: 'eyes'
 		})
 	}
-	const { title, body, number } = issue
-	const { owner, repo: name } = repo
 	const [firstLine, secondLine, ...restLines] = body.split('\n')
 	let ghPagesExists = false
 	let pagesSha = ORHPAN_SHA
