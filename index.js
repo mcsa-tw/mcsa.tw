@@ -28,8 +28,10 @@ async function onIssue (client, repo, { action, label, issue }) {
 	} else if (
 		issue.author_association !== 'OWNER' &&
 		issue.author_association !== 'MEMBER' &&
-		issue.author_association !== 'COLLABORATOR'
+		issue.author_association !== 'COLLABORATOR' &&
+		issue.author_association !== 'CONTRIBUTOR'
 	) {
+		console.log(issue.author_association);
 		await client.reactions.createForIssue({
 			...repo,
 			issue_number: number,
