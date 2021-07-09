@@ -154,7 +154,7 @@ async function onIssue (client, repo, { action, label, issue }) {
 
 	const { data: commit } = await client.git.createCommit({
 		...repo,
-		message: `Generator contact file${restLines.length ? ` \n\n${restLines.join('\n')}` : ''}`,
+		message: `Generate contact file${restLines.length ? ` \n\n${restLines.join('\n')}` : ''}`,
 		tree: tree.sha,
 		parents: pagesSha === ORHPAN_SHA ? [] : [pagesSha]
 	})
