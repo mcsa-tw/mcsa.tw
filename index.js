@@ -61,13 +61,34 @@ async function onIssue (client, repo, { action, label, issue }) {
 		ghPagesExists = true
 	} catch (e) { }
 
-	let members = JSON.parse(firstLine);
+	let members = [];
 	let tmp;
 	let blobTree = [];
 	let result = [];
 	let template = '';
 	let m = [];
 	let content = '';
+
+	try {
+		members = JSON.parse(firstLine)
+	} catch(e) {
+		await client.issues.createComment({
+			...repo,
+			issue_number: number,
+			body: '格式錯誤'
+		})
+		await client.reactions.createForIssue({
+			...repo,
+			issue_number: number,
+			content: 'confused'
+		})
+		await client.issues.update({
+			...repo,
+			issue_number: number,
+			state: 'closed'
+		})
+		return
+	}
 
 	try {
 		const { data: indexContent } = await client.repos.getContents({
