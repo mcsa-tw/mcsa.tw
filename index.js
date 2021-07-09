@@ -20,14 +20,32 @@ const ORHPAN_SHA = '4b825dc642cb6eb9a060e54bf8d69288fbee4904'
 })()
 
 async function onIssue (client, repo, { action, label, issue }) {
-	if (issue.state !== 'open'||
-		issue.title !== 'generate_contact' ||
-		(
-			issue.author_association !== 'OWNER' &&
-			issue.author_association !== 'MEMBER' &&
-			issue.author_association !== 'COLLABORATOR'
-		)
-	) { return }
+	if (issue.state !== 'open') { return }
+	if (issue.title !== 'generate_contact') {
+		return
+	} else if (
+		issue.author_association !== 'OWNER' &&
+		issue.author_association !== 'MEMBER' &&
+		issue.author_association !== 'COLLABORATOR'
+	) {
+		await client.reactions.createForIssue({
+			...repo,
+			issue_number: number,
+			content: 'laugh'
+		})
+		await client.issues.update({
+			...repo,
+			issue_number: number,
+			state: 'closed'
+		})
+		return
+	} else {
+		await client.reactions.createForIssue({
+			...repo,
+			issue_number: number,
+			content: 'eyes'
+		})
+	}
 	const { title, body, number } = issue
 	const { owner, repo: name } = repo
 	const [firstLine, secondLine, ...restLines] = body.split('\n')
@@ -88,6 +106,25 @@ async function onIssue (client, repo, { action, label, issue }) {
 		}
 	}
 
+	if(blobTree.length == 0) {
+		await client.issues.createComment({
+			...repo,
+			issue_number: number,
+			body: '未找到任何聯絡資訊'
+		})
+		await client.reactions.createForIssue({
+			...repo,
+			issue_number: number,
+			content: '-1'
+		})
+		await client.issues.update({
+			...repo,
+			issue_number: number,
+			state: 'closed'
+		})
+		return
+	}
+
 	const { data: tree } = await client.git.createTree({
 		...repo,
 		tree: blobTree,
@@ -120,6 +157,12 @@ async function onIssue (client, repo, { action, label, issue }) {
 	for (var i = 0; i < result.length; i++) {
 		commentContent += `\n| ${result[i].j} | ${result[i].n} | https://mcsa.tw/contact/${result[i].i} |`;
 	}
+
+	await client.reactions.createForIssue({
+		...repo,
+		issue_number: number,
+		content: 'hooray'
+	})
 
 	await client.issues.createComment({
 		...repo,
