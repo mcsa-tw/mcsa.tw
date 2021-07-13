@@ -25,10 +25,14 @@
 			font-size: 16px;
 			margin: 0;
 			padding: 0;
+			display: flex;
+			justify-content: space-between;
+			flex-direction: column;
+			min-height: 100vh;
 		}
 		#title {
 			text-align: center;
-			padding-top: 5vh;
+			margin-top: 5vh;
 		}
 		#title img {
 			width: 80px;
@@ -83,7 +87,7 @@
 		footer {
 			color: #CCC;
 			font-size: .7em;
-			padding: 10px 0;
+			margin-bottom: 5vh;
 		}
 		@font-face{
 			font-family:icomoon;
@@ -141,11 +145,6 @@
 			}
 		}
 	</style>
-	<script>
-		document.addEventListener('DOMContentLoaded', function(event) {
-			document.getElementById("main").style.padding = (window.innerHeight - document.getElementById("title").offsetHeight - document.getElementById("footer").offsetHeight - document.getElementById("main").offsetHeight)/2-30 + 'px 0';
-		});
-	</script>
 </head>
 <body>
 	<header id="title">
