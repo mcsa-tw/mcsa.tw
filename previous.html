@@ -151,7 +151,7 @@
 			transition: .5s background;
 		}
 
-		.box span {
+		.box:first-child h2:after {
 			font-size: 18px;
 			background: #ee7951;
 			padding: 4px 8px;
@@ -160,6 +160,8 @@
 			margin-top: -5px;
 			display: inline-block;
 			vertical-align: middle;
+			content: "本屆";
+			margin-left: 10px;
 		}
 
 		.box p,
@@ -181,7 +183,7 @@
 	<main id="main">
 		<div class="box" style="background-image:url('')">
 			<a href="https://23rd.mcsa.tw">
-				<h2>第 23 屆 <span>本屆</span></h2>
+				<h2>第 23 屆</h2>
 				<p>2021 ~ 2022</p>
 			</a>
 		</div>
