@@ -76,6 +76,9 @@
 			font-size: .7em;
 			margin-bottom: 5vh;
 		}
+		footer span {
+			color: #CCC;
+		}
 		@font-face {
 			font-family: 'icomoon';
 			src:  url('/res/fonts/icomoon.eot?v210718');
@@ -177,7 +180,7 @@
 </head>
 <body>
 	<header id="title">
-		<img src="/res/img/logo-s.jpg" />
+		<img width="80" height="80" src="res/img/logo-s.jpg">
 		<h1>明志科技大學學生會</h1>
 	</header>
 	<main id="main">
@@ -187,13 +190,13 @@
 				<p>2021 ~ 2022</p>
 			</a>
 		</div>
-		<div class="box" style="background-image:url('https://i.imgur.com/jxeVvbRl.jpeg');background-position-y:30%;">
+		<div class="box" style="background-image:url('https://i.imgur.com/Y7f6mZ9.jpg');background-position-y:30%;">
 			<a href="https://22nd.mcsa.tw">
 				<h2>第 22 屆</h2>
 				<p>2020 ~ 2021</p>
 			</a>
 		</div>
-		<div class="box" style="background-image:url('https://i.imgur.com/kuGAXCal.jpeg')">
+		<div class="box" style="background-image:url('https://i.imgur.com/Tmvi921.jpg')">
 			<a href="https://21st.mcsa.tw">
 				<h2>第 21 屆</h2>
 				<p>2019 ~ 2020</p>
@@ -207,7 +210,8 @@
 			<a href="https://www.youtube.com/channel/UC8E8FC21lHveJ7wyN6gPJWw"><i class="i-yt"></i></a>
 			<a href="mailto:contact@mcsa.tw"><i class="i-mail"></i></a>
 		</div>
-		Made by <a href="https://henrywu.tw">Henry Wu</a> / &copy; <script>document.write(new Date().getFullYear());</script> MCSA
+		Made by <a href="https://henrywu.tw">Henry Wu</a> / &copy; <span id="year"></span> MCSA
+		<script>document.getElementById('year').innerHTML = new Date().getFullYear()</script>
 	</footer>
 </body>
 </html>

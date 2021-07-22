@@ -40,7 +40,7 @@
 			border-radius: 50%;
 		}
 		#main {
-			margin: 5vh 0;
+			margin: 2vh 0;
 		}
 		h1 {
 			font-size: 1.2em;
@@ -88,6 +88,9 @@
 			color: #CCC;
 			font-size: .7em;
 			margin-bottom: 5vh;
+		}
+		footer span {
+			color: #CCC;
 		}
 		@font-face {
 			font-family: 'icomoon';
@@ -139,21 +142,21 @@
 		}
 		@media screen and (max-width: 600px){
 			h2 {
-				font-size: 1.6em;
+				font-size: 1.4em;
 			}
 			p {
 				font-size: 1em;
 			}
 			a#back, a#back2 {
-				padding: 10px 20px;
-				font-size: 16px;
+				padding: 8px 16px;
+				font-size: 14px;
 			}
 		}
 	</style>
 </head>
 <body>
 	<header id="title">
-		<img src="/res/img/logo-s.jpg" />
+		<img width="80" height="80" src="res/img/logo-s.jpg">
 		<h1>明志科技大學學生會</h1>
 	</header>
 	<main id="main">
@@ -171,7 +174,8 @@
 			<a href="https://www.youtube.com/channel/UC8E8FC21lHveJ7wyN6gPJWw"><i class="i-yt"></i></a>
 			<a href="mailto:contact@mcsa.tw"><i class="i-mail"></i></a>
 		</div>
-		&copy; <script>document.write(new Date().getFullYear());</script> MCSA
+		&copy; <span id="year"></span> MCSA
+		<script>document.getElementById('year').innerHTML = new Date().getFullYear()</script>
 	</footer>
 </body>
 </html>
