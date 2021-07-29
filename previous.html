@@ -76,36 +76,44 @@
 			font-size: .7em;
 			margin-bottom: 5vh;
 		}
-		@font-face{
-			font-family:icomoon;
-			src:url(res/fonts/icomoon.eot?v200626_1);
-			src:url(res/fonts/icomoon.eot?v200626_1#iefix) format('embedded-opentype'),url(res/fonts/icomoon.ttf?v200626_1) format('truetype'),url(res/fonts/icomoon.woff?v200626_1) format('woff'),url(res/fonts/icomoon.svg?v200626_1#icomoon) format('svg');
-			font-weight:400;
-			font-style:normal;
-			font-display:block
+		footer span {
+			color: #CCC;
 		}
-		i{
-			font-family:icomoon!important;
-			speak:none;
-			font-style:normal;
-			font-weight:400;
-			font-variant:normal;
-			text-transform:none;
-			line-height:1;
-			-webkit-font-smoothing:antialiased;
-			-moz-osx-font-smoothing:grayscale
+		@font-face {
+			font-family: 'icomoon';
+			src:  url('/res/fonts/icomoon.eot?v210718');
+			src:  url('/res/fonts/icomoon.eot?v210718#iefix') format('embedded-opentype'),
+			url('/res/fonts/icomoon.ttf?v210718') format('truetype'),
+			url('/res/fonts/icomoon.woff?v210718') format('woff'),
+			url('/res/fonts/icomoon.svg?v210718#icomoon') format('svg');
+			font-weight: normal;
+			font-style: normal;
+			font-display: block;
 		}
-		.i-mail:before{
-			content:"\e901"
+
+		i {
+			font-family: 'icomoon' !important;
+			speak: never;
+			font-style: normal;
+			font-weight: normal;
+			font-variant: normal;
+			text-transform: none;
+			line-height: 1;
+			-webkit-font-smoothing: antialiased;
+			-moz-osx-font-smoothing: grayscale;
 		}
-		.i-fb:before{
-			content:"\ea90"
+
+		.i-mail:before {
+			content: "\e900";
 		}
-		.i-ig:before{
-			content:"\ea92"
+		.i-ig:before {
+			content: "\e901";
 		}
-		.i-yt:before{
-			content:"\ea9d"
+		.i-yt:before {
+			content: "\e902";
+		}
+		.i-fb:before {
+			content: "\e903";
 		}
 		footer #icons {
 			margin-bottom: 10px;
@@ -114,7 +122,7 @@
 			font-size:2.2em;
 			color:#aaa;
 			text-decoration:none;
-			margin:4px
+			margin:0 8px
 		}
 		footer #icons a i{
 			color:#aaa;
@@ -146,7 +154,7 @@
 			transition: .5s background;
 		}
 
-		.box span {
+		.box:first-child h2:after {
 			font-size: 18px;
 			background: #ee7951;
 			padding: 4px 8px;
@@ -155,6 +163,8 @@
 			margin-top: -5px;
 			display: inline-block;
 			vertical-align: middle;
+			content: "本屆";
+			margin-left: 10px;
 		}
 
 		.box p,
@@ -170,23 +180,23 @@
 </head>
 <body>
 	<header id="title">
-		<img src="/res/img/logo-s.jpg" />
+		<img width="80" height="80" src="res/img/logo-s.jpg">
 		<h1>明志科技大學學生會</h1>
 	</header>
 	<main id="main">
 		<div class="box" style="background-image:url('')">
 			<a href="https://23rd.mcsa.tw">
-				<h2>第 23 屆 <span>本屆</span></h2>
+				<h2>第 23 屆</h2>
 				<p>2021 ~ 2022</p>
 			</a>
 		</div>
-		<div class="box" style="background-image:url('https://i.imgur.com/jxeVvbRl.jpeg');background-position-y:30%;">
+		<div class="box" style="background-image:url('https://i.imgur.com/a0lWUGN.jpg');background-position-y:30%;">
 			<a href="https://22nd.mcsa.tw">
 				<h2>第 22 屆</h2>
 				<p>2020 ~ 2021</p>
 			</a>
 		</div>
-		<div class="box" style="background-image:url('https://i.imgur.com/kuGAXCal.jpeg')">
+		<div class="box" style="background-image:url('https://i.imgur.com/9ePiLc8.jpg')">
 			<a href="https://21st.mcsa.tw">
 				<h2>第 21 屆</h2>
 				<p>2019 ~ 2020</p>
@@ -198,8 +208,10 @@
 			<a href="https://www.instagram.com/mcut_mcsa/"><i class="i-ig"></i></a>
 			<a href="https://www.facebook.com/mcut.mcsa/" id="link-fb"><i class="i-fb"></i></a>
 			<a href="https://www.youtube.com/channel/UC8E8FC21lHveJ7wyN6gPJWw"><i class="i-yt"></i></a>
+			<a href="mailto:contact@mcsa.tw"><i class="i-mail"></i></a>
 		</div>
-		Made by <a href="https://henrywu.tw">Henry Wu</a> / &copy; <script>document.write(new Date().getFullYear());</script> MCSA
+		Made by <a href="https://henrywu.tw">Henry Wu</a> / &copy; <span id="year"></span> MCSA
+		<script>document.getElementById('year').innerHTML = new Date().getFullYear()</script>
 	</footer>
 </body>
 </html>
