@@ -296,8 +296,9 @@
 			<li><a href="mailto:contact@mcsa.tw" class="far icon fa-envelope"><span class="label">E-mail</span></a></li>
 		</ul>
 		<div class="copyright">
-			Copyright &copy; <script>document.write(new Date().getFullYear());</script> MCSA 保留一切權利
+			Copyright &copy; <span id="year"></span> MCSA 保留一切權利
 		</div>
+		<script>document.getElementById('year').innerHTML = new Date().getFullYear()</script>
 	</footer>
 
 	<!-- Scripts -->
