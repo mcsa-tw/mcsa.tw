@@ -51,10 +51,10 @@
 		}
 
 		function sendForm(e) {
-			if(document.getElementsByName('url')[0].value == '') return alert('請填寫要縮短的網址');
-			else if(!document.getElementsByName('url')[0].checkValidity()) return alert('要縮短的網址格式錯誤');
-			else if(document.getElementsByName('short')[0].value == '') return alert('請填寫短網址後綴');
-			else if(document.getElementsByName('info')[0].value == '') return alert('請填寫說明');
+			if(document.getElementsByName('url')[0].value == '') return alert('請填寫「要縮短的網址」');
+			else if(!document.getElementsByName('url')[0].checkValidity()) return alert('「要縮短的網址」格式錯誤');
+			else if(document.getElementsByName('short')[0].value == '') return alert('請填寫「短網址後綴」');
+			else if(document.getElementsByName('info')[0].value == '') return alert('請填寫「說明」');
 			else document.getElementById('realform').submit();
 
 		}
@@ -90,6 +90,7 @@
 				送出後記得去按最底下的 "Commit new file"
 			</form>
 		</div>
+		<div style="text-align:center">Made by <a href="https://henrywu.tw">Henry Wu</a></div>
 	</div>
 </body>
 </html>
