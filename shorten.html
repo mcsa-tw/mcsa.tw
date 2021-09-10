@@ -46,7 +46,7 @@
 				e.value = e.value.toLowerCase().replace(' ','');
 				document.getElementsByName('filename')[0].value = e.value.trim('/') + '.html';
 			}
-			if(e.name == 'url') document.getElementsByName('value')[0].value = '<meta http-equiv="refresh" content="0;url=' + e.value.trim() + '">';
+			if(e.name == 'url') document.getElementsByName('value')[0].value = '<meta http-equiv="refresh" content="0;url=' + e.value.trim() + '">\n<!-- Google 分析 -->\n<script async src="https://www.googletagmanager.com/gtag/js?id=G-WQRDE6DR1Q"><\/script>\n<script>window.dataLayer = window.dataLayer || [];function gtag(){dataLayer.push(arguments);}gtag(\'js\', new Date());gtag(\'config\', \'G-WQRDE6DR1Q\');<\/script>';
 			if(e.name == 'info') document.getElementsByName('message')[0].value = '[短網址] ' + e.value.trim();
 		}
 
