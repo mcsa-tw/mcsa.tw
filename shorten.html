@@ -43,6 +43,8 @@
 		};
 		function changeValue(e) {
 			if(e.name == 'short') {
+				//document.getElementById('sendBtn').innerHTML = '新增';
+				//document.getElementById('realform').action = 'https://github.com/mcsa-tw/mcsa.tw/new/main';
 				e.value = e.value.toLowerCase().replace(' ','');
 				document.getElementsByName('filename')[0].value = e.value.trim('/') + '.html';
 			}
@@ -56,7 +58,30 @@
 			else if(document.getElementsByName('short')[0].value == '') return alert('請填寫「短網址後綴」');
 			else if(document.getElementsByName('info')[0].value == '') return alert('請填寫「說明」');
 			else document.getElementById('realform').submit();
+		}
 
+		function checkExist(e) {
+			document.getElementById('sendBtn').innerHTML = '新增';
+			document.getElementById('realform').action = 'https://github.com/mcsa-tw/mcsa.tw/new/main';
+			var xhr = new XMLHttpRequest();
+			xhr.open('GET','https://mcsa.tw/'+e.value.trim('/') + '.html');
+			xhr.onload = function() {
+				if(xhr.status != 404) {
+					alert('此短網址已被使用：https://mcsa.tw/'+e.value.trim('/'));
+					e.value = '';
+					e.focus();
+					/*if(confirm('此網址已被使用：https://mcsa.tw/'+e.value.trim('/')+'\n\n點選［確定］來修改\n點選［取消］換一個短網址\n\n注意：已發布的短網址請勿修改！')) {
+						document.getElementById('sendBtn').innerHTML = '修改';
+						document.getElementById('realform').action = 'https://github.com/mcsa-tw/mcsa.tw/edit/main/'+e.value.trim('/')+'.html';
+					} else {
+						e.value = '';
+						e.focus();
+						document.getElementById('sendBtn').innerHTML = '新增';
+						document.getElementById('realform').action = 'https://github.com/mcsa-tw/mcsa.tw/new/main';
+					}*/
+				}
+			};
+			xhr.send();
 		}
 	</script>
 </head>
@@ -73,7 +98,7 @@
 				</div>
 				<div class="field">
 					<label>短網址後綴</label>
-					<input name="short" required="required" placeholder="要放在 mcsa.tw/ 後面的短文字" oninput="changeValue(this)">
+					<input name="short" required="required" placeholder="要放在 mcsa.tw/ 後面的短文字" oninput="changeValue(this)" onchange="checkExist(this)">
 					<small>小寫英文、數字、半形減號 <code>-</code>、半形底線 <code>_</code>、斜線 <code>/</code></small>
 				</div>
 				<div class="field">
@@ -86,7 +111,7 @@
 				<input type="hidden" name="filename">
 				<input type="hidden" name="value">
 				<input type="hidden" name="message">
-				<button style="margin-bottom:8px" class="ts fluid button" type="button" onclick="sendForm(this)">送出</button><br>
+				<button style="margin-bottom:8px" class="ts fluid button" type="button" id="sendBtn" onclick="sendForm(this)">送出</button><br>
 				送出後記得去按最底下的 "Commit new file"
 			</form>
 		</div>
