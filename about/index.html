@@ -14,10 +14,16 @@
 	<meta property="og:url" content="https://mcsa.tw/about">
 	<meta property="og:image" content="https://mcsa.tw/res/img/logo.jpg">
 	<link rel="shortcut icon" type="image/png" href="https://mcsa.tw/res/img/logo.jpg" />
-	<link rel="stylesheet" href="assets/css/main.css?2" />
+	<link rel="stylesheet" href="assets/css/main.css?3" />
 	<link rel="stylesheet" href="assets/css/font-awesome.min.css" />
-	<style>
-	</style>
+	<!-- Google 分析 -->
+	<script async src="https://www.googletagmanager.com/gtag/js?id=G-WQRDE6DR1Q"></script>
+	<script>
+		window.dataLayer = window.dataLayer || [];
+		function gtag(){dataLayer.push(arguments);}
+		gtag('js', new Date());
+		gtag('config', 'G-WQRDE6DR1Q');
+	</script>
 </head>
 <body>
 
@@ -37,7 +43,7 @@
 			<li><a href="https://23rd.mcsa.tw/law/">法規專區</a></li>
 			<li><a href="https://23rd.mcsa.tw/photo">活動相簿</a></li>
 			<li><a href="https://23rd.mcsa.tw/finance">財務月報表</a></li>
-			<li><a href="https://23rd.mcsa.tw/reserve-meeting-room">會議室借用</a></li>
+			<li><a href="https://23rd.mcsa.tw/reserve">借用專區</a></li>
 			<li><a href="https://mcsa.tw/about/">關於學生會</a></li>
 			<li><a href="https://mcsa.tw/previous">歷屆活動相簿</a></li>
 		</ul>
@@ -298,8 +304,10 @@
 			<li><a href="mailto:contact@mcsa.tw" class="far icon fa-envelope"><span class="label">E-mail</span></a></li>
 		</ul>
 		<div class="copyright">
+			Copyright &copy; <span id="year"></span> MCSA 保留一切權利
 			Copyright &copy; <script>document.write(new Date().getFullYear());</script> MCSA 保留一切權利
 		</div>
+		<script>document.getElementById('year').innerHTML = new Date().getFullYear()</script>
 	</footer>
 
 	<!-- Scripts -->
