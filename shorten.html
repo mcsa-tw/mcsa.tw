@@ -61,7 +61,7 @@
 		}
 
 		function checkExist(e) {
-			document.getElementById('sendBtn').innerHTML = '新增';
+			document.getElementById('sendBtn').innerHTML = '送出';
 			document.getElementById('realform').action = 'https://github.com/mcsa-tw/mcsa.tw/new/main';
 			var xhr = new XMLHttpRequest();
 			xhr.open('GET','https://mcsa.tw/'+e.value.trim('/') + '.html');
@@ -70,15 +70,6 @@
 					alert('此短網址已被使用：https://mcsa.tw/'+e.value.trim('/'));
 					e.value = '';
 					e.focus();
-					/*if(confirm('此網址已被使用：https://mcsa.tw/'+e.value.trim('/')+'\n\n點選［確定］來修改\n點選［取消］換一個短網址\n\n注意：已發布的短網址請勿修改！')) {
-						document.getElementById('sendBtn').innerHTML = '修改';
-						document.getElementById('realform').action = 'https://github.com/mcsa-tw/mcsa.tw/edit/main/'+e.value.trim('/')+'.html';
-					} else {
-						e.value = '';
-						e.focus();
-						document.getElementById('sendBtn').innerHTML = '新增';
-						document.getElementById('realform').action = 'https://github.com/mcsa-tw/mcsa.tw/new/main';
-					}*/
 				}
 			};
 			xhr.send();
@@ -99,7 +90,7 @@
 				<div class="field">
 					<label>短網址後綴</label>
 					<input name="short" required="required" placeholder="要放在 mcsa.tw/ 後面的短文字" oninput="changeValue(this)" onchange="checkExist(this)">
-					<small>小寫英文、數字、半形減號 <code>-</code>、半形底線 <code>_</code>、斜線 <code>/</code></small>
+					<small>限小寫英文、數字、半形減號 <code>-</code>、半形底線 <code>_</code>、斜線 <code>/</code></small>
 				</div>
 				<div class="field">
 					<label>說明</label>
