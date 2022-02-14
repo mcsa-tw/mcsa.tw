@@ -113,6 +113,10 @@ async function onIssue (client, repo, { action, label, issue }) {
 			.replace(/\{\{l\}\}/g,(m.l || ''))
 			.replace(/\{\{p\}\}/g,(m.p || '').replace(/(\d{4})(\d{3})(\d{3})/, '$1-$2-$3'))
 			.replace(/\{\{m\}\}/g,(m.m || ''))
+			
+			if(!m.l) content = content.replace('<a href="https://line.me/ti/p/"><i class="fab fa-line"></i> LINE</a><br/>','');
+			if(!m.p) content = content.replace('<a href="tel:"><i class="fas fa-phone-alt"></i> </a><br/>','');
+			if(!m.m) content = content.replace('<a href="mailto:"><i class="fas fa-envelope"></i> </a>','');
 
 			tmp = await client.git.createBlob({
 				...repo,
