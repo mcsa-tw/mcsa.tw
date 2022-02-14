@@ -105,14 +105,14 @@ async function onIssue (client, repo, { action, label, issue }) {
 
 	for (var i = 0; i < members.length; i++) {
 		m = members[i];
-		if(m.i != '' && m.n != '' && m.j != '' && m.l != '' && m.p != '' && m.m != '') {
+		if(m.i != '' && m.n != '' && m.j != '') {
 			content = template
 			.replace(/\{\{i\}\}/g,m.i)
 			.replace(/\{\{n\}\}/g,m.n)
 			.replace(/\{\{j\}\}/g,m.j)
-			.replace(/\{\{l\}\}/g,m.l)
-			.replace(/\{\{p\}\}/g,m.p.replace(/(\d{4})(\d{3})(\d{3})/, '$1-$2-$3'))
-			.replace(/\{\{m\}\}/g,m.m)
+			.replace(/\{\{l\}\}/g,m.l || '')
+			.replace(/\{\{p\}\}/g,(m.p || '').replace(/(\d{4})(\d{3})(\d{3})/, '$1-$2-$3'))
+			.replace(/\{\{m\}\}/g,m.m || '')
 
 			tmp = await client.git.createBlob({
 				...repo,
