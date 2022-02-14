@@ -110,9 +110,9 @@ async function onIssue (client, repo, { action, label, issue }) {
 			.replace(/\{\{i\}\}/g,m.i)
 			.replace(/\{\{n\}\}/g,m.n)
 			.replace(/\{\{j\}\}/g,m.j)
-			.replace(/\{\{l\}\}/g,m.l || '')
+			.replace(/\{\{l\}\}/g,(m.l || ''))
 			.replace(/\{\{p\}\}/g,(m.p || '').replace(/(\d{4})(\d{3})(\d{3})/, '$1-$2-$3'))
-			.replace(/\{\{m\}\}/g,m.m || '')
+			.replace(/\{\{m\}\}/g,(m.m || ''))
 
 			tmp = await client.git.createBlob({
 				...repo,
