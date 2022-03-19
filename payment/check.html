@@ -6,7 +6,7 @@
 	<title>學生會費繳費查詢 | 明志科技大學學生會</title>
 	<meta name="title" content="學生會費繳費查詢 | 明志科技大學學生會">
 	<meta name="description" content="Ming Chi University of Technology Student Association">
-	<meta name="keywords" content="繳費,mcsa,mcut,學生會,明志科大,明志科技大學,明志科技大學學生會">
+	<meta name="keywords" content="繳費查詢,mcsa,mcut,學生會,明志科大,明志科技大學,明志科技大學學生會">
 	<meta name="robots" content="index, follow">
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 	<meta name="language" content="zh-tw">
@@ -202,6 +202,10 @@
 				padding: 8px 0;
 			}
 		}
+
+		:focus-visible {
+			outline: none;
+		}
 	</style>
 
 	<script async src="https://www.googletagmanager.com/gtag/js?id=G-WQRDE6DR1Q"></script>
@@ -214,16 +218,16 @@
 	<script>
 		function showResult(uid='',uname='') {
 			var p=new RegExp(/([U|M|N|D|u|m|n|d])\d{4}\w\d{3}/g);
-			document.getElementById("result").innerHTML = '<div class="lds-ring"><div></div><div></div><div></div><div></div></div>查詢中';
+			document.getElementById("result").innerHTML = '<div class="lds-ring"><div></div><div></div><div></div><div></div></div>查詢中<br>　';
 			window.scrollTo({ top: 550, behavior: "smooth" });
 			if(uid == '' || uname == '') {
 				document.getElementById("result").innerHTML = '<div class="sa"><div class="sa-warning"><div class="sa-warning-body"></div><div class="sa-warning-dot"></div></div></div>'+
-				'請填寫所有欄位'
+				'請填寫所有欄位<br>　'
 				return;
 			}
 			if(!p.test(uid)) {
 				document.getElementById("result").innerHTML = '<div class="sa"><div class="sa-warning"><div class="sa-warning-body"></div><div class="sa-warning-dot"></div></div></div>'+
-				'學號格式錯誤'
+				'學號格式錯誤<br>　'
 				return;
 			}
 			var xhr = new XMLHttpRequest();
@@ -235,13 +239,13 @@
 
 					if(obj.length == 1) { // No data
 						html = '<div class="sa"><div class="sa-warning"><div class="sa-warning-body"></div><div class="sa-warning-dot"></div></div></div>'+
-						'查無您的資料，請檢查學號及姓名'
+						'查無您的資料，請檢查學號及姓名<br>　'
 					} else if(obj[1]['data'][3] == 240) {
 						html = '<div class="sa"><div class="sa-success"><div class="sa-success-tip"></div><div class="sa-success-long"></div><div class="sa-success-placeholder"></div><div class="sa-success-fix"></div></div></div>'+
-						'您已繳交學生會費'
+						'您已繳交學生會費<br>　'
 					} else {
 						html = '<div class="sa"><div class="sa-error"><div class="sa-error-x"><div class="sa-error-left"></div><div class="sa-error-right"></div></div><div class="sa-error-placeholder"></div><div class="sa-error-fix"></div></div></div>'+
-						'您尚未繳交本年度學生會費'
+						'您尚未繳交本年度學生會費<br>若有繳費相關問題，請洽學生會詢問。'
 					}
 					document.getElementById("result").innerHTML = html;
 				}
@@ -253,7 +257,7 @@
 	</script>
 </head>
 <body>
-	<div style="text-align:left;margin:2vh auto;width:95%;max-width:800px">
+	<div style="text-align:left;margin:2vh auto 0;width:95%;max-width:800px">
 		<a href="https://mcsa.tw" style="color:#FFF;text-decoration:none">《 回官網</a>
 	</div>
 	<header id="title">
