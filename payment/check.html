@@ -252,7 +252,7 @@
 				}
 
 			}
-			xhr.open("get","https://script.google.com/macros/s/AKfycbx7KJmvXSgY1Izd7onfEuKs877EcVOrmX0QLM3WonVc1cyfOCcKWK_E3nZn0wTAqp9aNg/exec?name="+encodeURIComponent(uname)+"uid="+encodeURIComponent(uid.toUpperCase()),true);
+			xhr.open("get","https://script.google.com/macros/s/AKfycbx7KJmvXSgY1Izd7onfEuKs877EcVOrmX0QLM3WonVc1cyfOCcKWK_E3nZn0wTAqp9aNg/exec?name="+encodeURIComponent(uname)+"&uid="+encodeURIComponent(uid.toUpperCase()),true);
 			xhr.send();
 		}
 	</script>
@@ -289,7 +289,7 @@
 			<a href="mailto:contact@mcsa.tw"><i class="i-mail"></i></a>
 		</div>
 		Made by <a href="https://henrywu.tw">Henry Wu</a> / &copy; <span id="year"></span> MCSA
-		<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>document.getElementById('year').innerHTML = new Date().getFullYear()</script>
+		<script>document.getElementById('year').innerHTML = new Date().getFullYear()</script>
 	</footer>
 </body>
 </html>
