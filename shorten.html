@@ -43,8 +43,6 @@
 		};
 		function changeValue(e) {
 			if(e.name == 'short') {
-				//document.getElementById('sendBtn').innerHTML = '新增';
-				//document.getElementById('realform').action = 'https://github.com/mcsa-tw/mcsa.tw/new/main';
 				e.value = e.value.toLowerCase().replace(' ','');
 				document.getElementsByName('filename')[0].value = e.value.trim('/') + '.html';
 			}
@@ -62,7 +60,7 @@
 
 		function checkExist(e) {
 			document.getElementById('sendBtn').innerHTML = '送出';
-			document.getElementById('realform').action = 'https://github.com/mcsa-tw/mcsa.tw/new/main';
+			document.getElementById('realform').action = 'https://github.com/mcsa-tw/mcsa.tw/new/gh-pages';
 			var xhr = new XMLHttpRequest();
 			xhr.open('GET','https://mcsa.tw/'+e.value.trim('/') + '.html');
 			xhr.onload = function() {
@@ -98,7 +96,7 @@
 				</div>
 			</div>
 			<br><br>
-			<form method="get" action="https://github.com/mcsa-tw/mcsa.tw/new/main" id="realform">
+			<form method="get" action="https://github.com/mcsa-tw/mcsa.tw/new/gh-pages" id="realform">
 				<input type="hidden" name="filename">
 				<input type="hidden" name="value">
 				<input type="hidden" name="message">
