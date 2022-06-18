@@ -57,7 +57,7 @@ async function onIssue (client, repo, { action, label, issue }) {
 	try {
 		const resp = await client.git.getRef({
 			...repo,
-			ref: 'heads/gh-page'
+			ref: 'heads/gh-pages'
 		})
 		pagesSha = resp.data.object.sha
 		ghPagesExists = true
@@ -96,7 +96,7 @@ async function onIssue (client, repo, { action, label, issue }) {
 		const { data: indexContent } = await client.repos.getContents({
 			...repo,
 			path: 'contact/template.html',
-			ref: 'heads/gh-page'
+			ref: 'heads/gh-pages'
 		})
 		template = Buffer.from(indexContent.content, indexContent.encoding).toString()
 	} catch(e) {
@@ -168,14 +168,14 @@ async function onIssue (client, repo, { action, label, issue }) {
 	if (!ghPagesExists) {
 		await client.git.createRef({
 			...repo,
-			ref: 'refs/heads/gh-page',
+			ref: 'refs/heads/gh-pages',
 			sha: commit.sha
 		})
 	} else {
 		await client.git.updateRef({
 			...repo,
 			force: true,
-			ref: 'heads/gh-page',
+			ref: 'heads/gh-pages',
 			sha: commit.sha
 		})
 	}
