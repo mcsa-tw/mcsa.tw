@@ -106,6 +106,7 @@ async function onIssue (client, repo, { action, label, issue }) {
 	for (var i = 0; i < members.length; i++) {
 		m = members[i];
 		if(m.i != '' && m.n != '' && m.j != '') {
+			m.i = m.i.toUpperCase();
 			content = template
 			.replace(/\{\{i\}\}/g,m.i)
 			.replace(/\{\{n\}\}/g,m.n)
