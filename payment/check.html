@@ -242,7 +242,7 @@
 					var obj = JSON.parse(result);
 					var html = '';
 
-					if(obj.length == 0) { // No data
+					if(obj.length == 0) {
 						html = '<div class="sa"><div class="sa-warning"><div class="sa-warning-body"></div><div class="sa-warning-dot"></div></div></div>'+
 						'查無您的資料，請檢查學號及姓名<br>　'
 					} else if(obj[0][3] == 240) {
@@ -277,7 +277,7 @@
 		</div>
 		<div class="field">
 			<label>姓名</label>
-			<input type="text" id="uname" />
+			<input type="text" id="uname" onblur="this.value=this.value.split(' ').join('');"/>
 		</div>
 		<div class="field field-small">
 			<button class="button" onclick="showResult(uid.value,uname.value);">查詢</button></br>
