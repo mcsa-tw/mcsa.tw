@@ -58,7 +58,7 @@
             if (e.target.value == "") {
                 qrcode.src = ``
             } else {
-                qrcode.src = `https://db.lyuchan.com/chart?cht=qr&chs=512x512&chl=${e.target.value}`
+                qrcode.src = `https://quickchart.io/qr?text=${e.target.value}/&size=512`
             }
             console.log(e.target.value);
         }
