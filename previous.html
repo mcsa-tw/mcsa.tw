@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+	<title>本屆官網 & 歷屆活動影音 | 明志科技大學學生會</title>
+	<meta name="title" content="本屆官網 & 歷屆活動相簿 | 明志科技大學學生會">
+	<meta name="description" content="Ming Chi University of Technology Student Association">
+	<meta name="keywords" content="mcsa,mcut,學生會,明志科大,明志科技大學,明志科技大學學生會">
+	<meta name="robots" content="index, follow">
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<meta name="language" content="zh-tw">
+	<meta property="og:url" content="https://mcsa.tw/previous">
+	<meta property="og:image" content="https://mcsa.tw/res/img/logo.jpg">
+	<link rel="shortcut icon" type="image/png" href="https://mcsa.tw/res/img/logo.jpg" />
+	<style>
+		* {
+			color: #fff;
+			font-family: "SF Pro TC", "SF Pro Text", "SF Pro Icons", "PingFang TC", "Helvetica Neue", "Helvetica", "Arial", "Microsoft JhengHei", wf_SegoeUI, "Segoe UI", Segoe, "Segoe WP", Tahoma, Verdana, Ubuntu, "Bitstream Vera Sans", "DejaVu Sans", Tahoma, 微軟正黑體, "LiHei Pro", "WenQuanYi Micro Hei", "Droid Sans Fallback", "AR PL UMing TW", Roboto, "Helvetica Neue", "Hiragino Maru Gothic ProN", メイリオ, "ヒラギノ丸ゴ ProN W4", Meiryo, "Droid Sans",
+			sans-serif;
+		}
+		body {
+			background: #333;
+			text-align: center;
+			font-size: 16px;
+			margin: 0;
+			padding: 0;
+			display: flex;
+			justify-content: space-between;
+			flex-direction: column;
+			min-height: 100vh;
+		}
+		#title {
+			text-align: center;
+			margin-top: 5vh;
+		}
+		#title img {
+			width: 80px;
+			height: 80px;
+			border-radius: 50%;
+		}
+		#main {
+			width: 90%;
+			max-width: 600px;
+			margin: 2vh auto;
+		}
+		h1 {
+			font-size: 1.2em;
+			line-height: 1.7em;
+			font-weight: 400;
+		}
+		h2 {
+			font-size: 1.8em;
+			margin-top: 0
+		}
+		p {
+			font-size: 1.2em;
+		}
+		a#back {
+			text-decoration: none;
+			padding: 15px 25px;
+			font-size: 20px;
+			background: #ee7951;
+			border-radius: 5px;
+			display: inline-block;
+		}
+		a#back:hover {
+			background: #f19072;
+		}
+		a {
+			color: #fff;
+		}
+		footer {
+			color: #CCC;
+			font-size: .7em;
+			margin-bottom: 5vh;
+		}
+		footer span {
+			color: #CCC;
+		}
+		@font-face {
+			font-family: 'icomoon';
+			src:  url('/res/fonts/icomoon.eot?v210718');
+			src:  url('/res/fonts/icomoon.eot?v210718#iefix') format('embedded-opentype'),
+			url('/res/fonts/icomoon.ttf?v210718') format('truetype'),
+			url('/res/fonts/icomoon.woff?v210718') format('woff'),
+			url('/res/fonts/icomoon.svg?v210718#icomoon') format('svg');
+			font-weight: normal;
+			font-style: normal;
+			font-display: block;
+		}
+
+		i {
+			font-family: 'icomoon' !important;
+			speak: never;
+			font-style: normal;
+			font-weight: normal;
+			font-variant: normal;
+			text-transform: none;
+			line-height: 1;
+			-webkit-font-smoothing: antialiased;
+			-moz-osx-font-smoothing: grayscale;
+		}
+
+		.i-mail:before {
+			content: "\e900";
+		}
+		.i-ig:before {
+			content: "\e901";
+		}
+		.i-yt:before {
+			content: "\e902";
+		}
+		.i-fb:before {
+			content: "\e903";
+		}
+		footer #icons {
+			margin-bottom: 10px;
+		}
+		footer #icons a{
+			font-size:2.2em;
+			color:#aaa;
+			text-decoration:none;
+			margin:0 8px
+		}
+		footer #icons a i{
+			color:#aaa;
+		}
+		.box {
+			background-size: cover;
+			background-position: center center;
+			border-radius: 10px;
+			text-shadow: 0 0 5px #555;
+			margin: 30px 0;
+			border-bottom: 3px solid #555;
+		}
+
+		.box:active {
+			transform: translateY(2px);
+		}
+
+		.box a {
+			display: block;
+			padding: 50px 0;
+			background: rgba(0,0,0,.4);
+			border-radius: 10px;
+			transition: .5s background;
+			text-decoration: none;
+		}
+
+		.box a:hover {
+			background: rgba(0,0,0,.2);
+			transition: .5s background;
+		}
+
+		.box:first-child h2:after {
+			font-size: 18px;
+			background: #ee7951;
+			padding: 4px 8px;
+			border-radius: 5px;
+			font-weight: 400;
+			margin-top: -5px;
+			display: inline-block;
+			vertical-align: middle;
+			content: "本屆";
+			margin-left: 10px;
+			//display: none;
+		}
+
+		.box p,
+		.box h2 {
+			margin-bottom: 0
+		}
+		
+		::-webkit-scrollbar{width:5px;}::-webkit-scrollbar-track{-webkit-border-radius:10px;border-radius:10px;}::-webkit-scrollbar-thumb{-webkit-border-radius:4px;border-radius:4px;background:#777;}
+	</style>
+	<!-- Google 分析 -->
+	<script async src="https://www.googletagmanager.com/gtag/js?id=G-WQRDE6DR1Q"></script>
+	<script>
+		window.dataLayer = window.dataLayer || [];
+		function gtag(){dataLayer.push(arguments);}
+		gtag('js', new Date());
+		gtag('config', 'G-WQRDE6DR1Q');
+	</script>
+</head>
+<body>
+	<header id="title">
+		<img width="80" height="80" src="res/img/logo-s.jpg">
+		<h1>明志科技大學學生會</h1>
+	</header>
+	<main id="main">
+		<!-- 圖片大小 640x385 px -->
+		<div class="box" style="background-image:url('res/img/previous/25.webp');background-position-y:40%">
+			<a href="https://25th.mcsa.tw">
+				<h2>第 25 屆 </h2>
+				<p>2023. 8 ~ 2024. 7</p>
+			</a>
+		</div>
+		<div class="box" style="background-image:url('https://i.imgur.com/zHNQ6n0h.jpg');background-position-y:20%">
+			<a href="https://24th.mcsa.tw">
+				<h2>第 24 屆 </h2>
+				<p>2022. 8 ~ 2023. 7</p>
+			</a>
+		</div>
+		<div class="box" style="background-image:url('res/img/previous/23.jpg');background-position-y:5%">
+			<a href="https://23rd.mcsa.tw">
+				<h2>第 23 屆</h2>
+				<p>2021. 8 ~ 2022. 7</p>
+			</a>
+		</div>
+		<div class="box" style="background-image:url('res/img/previous/22.jpg');background-position-y:45%">
+			<a href="https://22nd.mcsa.tw">
+				<h2>第 22 屆</h2>
+				<p>2020. 8 ~ 2021. 7</p>
+			</a>
+		</div>
+		<div class="box" style="background-image:url('res/img/previous/21.jpg');background-position-y:45%">
+			<a href="https://21st.mcsa.tw">
+				<h2>第 21 屆</h2>
+				<p>2019. 8 ~ 2020. 7</p>
+			</a>
+		</div>
+	</main>
+	<footer id="footer">
+		<div id="icons">
+			<a href="https://www.instagram.com/mcut_mcsa/"><i class="i-ig"></i></a>
+			<a href="https://www.facebook.com/mcut.mcsa/" id="link-fb"><i class="i-fb"></i></a>
+			<a href="https://www.youtube.com/channel/UC8E8FC21lHveJ7wyN6gPJWw"><i class="i-yt"></i></a>
+			<a href="mailto:contact@mcsa.tw"><i class="i-mail"></i></a>
+		</div>
+		Made by <a href="https://henrywu.tw">Henry Wu</a> / &copy; <span id="year"></span> MCSA
+		<script>document.getElementById('year').innerHTML = new Date().getFullYear()</script>
+	</footer>
+</body>
+</html>
