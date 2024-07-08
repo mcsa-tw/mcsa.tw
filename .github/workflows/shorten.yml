@@ -1,0 +1,25 @@
+name: Deploy to gh-pages on dispatch
+
+on:
+  repository_dispatch:
+    types:
+      - add-file
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Create new file
+        if: github.event.client_payload.filename && github.event.client_payload.content
+        run: echo "${{ github.event.client_payload.content }}" > ./${{ github.event.client_payload.filename }}.html
+
+      - name: Deploy to gh-pages
+        if: github.event.client_payload.filename && github.event.client_payload.content
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./
+          publish_branch: gh-pages
