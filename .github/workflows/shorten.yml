@@ -27,6 +27,6 @@ jobs:
           publish_branch: gh-pages
           publish_dir: ./
           keep_files: true
-          commit_message: "create shorten url"
+          commit_message: "create shorten url ${{ github.event.client_payload.filename }}"
           user_name: 'github-actions[bot]'
           user_email: 'github-actions[bot]@users.noreply.github.com'
