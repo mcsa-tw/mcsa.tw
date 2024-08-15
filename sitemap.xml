@@ -1,7 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 	<url>
-		<loc>https://25rd.mcsa.tw</loc>
+		<loc>https://26th.mcsa.tw</loc>
+	</url>
+	<url>
+		<loc>https://25th.mcsa.tw</loc>
 	</url>
 	<url>
 		<loc>https://23rd.mcsa.tw</loc>
@@ -23,24 +26,6 @@
 	</url>
 	<url>
 		<loc>https://mcsa.tw/yt</loc>
-	</url>
-	<url>
-		<loc>https://23rd.mcsa.tw/post</loc>
-	</url>
-	<url>
-		<loc>https://23rd.mcsa.tw/law</loc>
-	</url>
-	<url>
-		<loc>https://23rd.mcsa.tw/photo</loc>
-	</url>
-	<url>
-		<loc>https://23rd.mcsa.tw/finance</loc>
-	</url>
-	<url>
-		<loc>https://23rd.mcsa.tw/reserve</loc>
-	</url>
-	<url>
-		<loc>https://mcsa.tw/about</loc>
 	</url>
 	<url>
 		<loc>https://mcsa.tw/previous</loc>
