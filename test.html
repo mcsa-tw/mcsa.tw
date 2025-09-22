@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="zhtw">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<title>明志科技大學學生會</title>
+	<style>
+		*,::after,::before{box-sizing:border-box}blockquote,body,dd,dl,figure,h1,h2,h3,h4,p{margin:0}ol[role=list],ul[role=list]{list-style:none}html:focus-within{scroll-behavior:smooth}body{min-height:100vh;text-rendering:optimizeSpeed;line-height:1.5}a:not([class]){text-decoration-skip-ink:auto}img,picture{max-width:100%;display:block}button,input,select,textarea{font:inherit}@media (prefers-reduced-motion:reduce){html:focus-within{scroll-behavior:auto}*,::after,::before{animation-duration:0s!important;animation-iteration-count:1!important;transition-duration:0s!important;scroll-behavior:auto!important}}
+
+		html {
+			font-size: 16px;
+			--border-radius: 0.5rem;
+		}
+
+		::selection {
+			background: #fce4dd;
+			color: #222;
+		}
+
+		body {
+			font-family: noto sans tc,noto sans sc,noto sans hk,noto sans jp,noto sans kr,sf pro tc,sf pro text,sf pro icons,pingfang tc,helvetica neue,helvetica,arial,microsoft jhenghei,wf_SegoeUI,segoe ui,Segoe,segoe wp,Tahoma,Verdana,Ubuntu,bitstream vera sans,dejavu sans,微軟正黑體,lihei pro,wenquanyi micro hei,droid sans fallback,ar pl uming tw,Roboto,hiragino maru gothic pron,メイリオ,ヒラギノ丸ゴ pron w4,Meiryo,droid sans,sans-serif;
+			background: #fafafa;
+			min-height: 100vh;
+			min-height: 100dvh;
+		}
+
+		.container {
+			width: 100%;
+			max-width: 600px;
+			margin: 0 auto;
+			padding: 2rem;
+
+			min-height: 100vh;
+			min-height: 100dvh;
+
+			display: flex;
+			flex-direction: column;
+			gap: 2rem;
+		}
+
+		header,
+		main {
+			width: 100%;
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+		}
+
+		.logo {
+			width: 6rem;
+			border-radius: 50%;
+		}
+
+		h1 {
+			color: #424242;
+			font-size: 1.2rem;
+			font-weight: normal;
+			margin-top: 1rem;
+		}
+
+		main {
+			flex: 1;
+			gap: 1rem;
+		}
+
+		.button {
+			width: 100%;
+			padding: 0.75rem 1.5rem;
+			text-align: center;
+			background: #ef7852;
+			color: #fff;
+			text-decoration: none;
+			border-radius: var(--border-radius);
+			transition: background 0.5s ease;
+		}
+
+		.button:hover {
+			background: #f18f72;
+			transition: background 0.5s ease;
+			cursor: pointer;
+		}
+
+		.image {
+			width: 100%;
+			border-radius: var(--border-radius);
+		}
+
+		.clickable {
+			cursor: pointer;
+			transition: opacity 0.5s ease;
+		}
+
+		.clickable:hover .image {
+			opacity: 0.8;
+			transition: opacity 0.5s ease;
+		}
+
+		footer {
+			font-size: .8rem;
+			color: #bdbdbd;
+			text-align: center;
+		}
+
+		footer a {
+			color: #bdbdbd;
+			text-decoration: underline;
+		}
+
+		footer a.special {
+			color: #f18f72;
+		}
+
+		.loading {
+			justify-content: center;
+		}
+
+		.loader {
+			border: 0.5rem solid #f39e81;
+			border-top: 0.5rem solid #f3f3f3;
+			border-radius: 50%;
+			width: 3rem;
+			height: 3rem;
+			animation: spin 1s linear infinite;
+		}
+
+		@keyframes spin {
+			0% { transform: rotate(0deg); }
+			100% { transform: rotate(360deg); }
+		}
+	</style>
+</head>
+<body>
+	<div class="container">
+		<header>
+			<img class="logo" src="res/img/logo.jpg">
+			<h1>明志科技大學學生會</h1>
+		</header>
+		<main class="loading">
+			<div class="loader"></div>
+		</main>
+		<footer>
+			<a target="_blank" class="special" href="https://www.instagram.com/mcut_mcsa/">聯絡我們</a><br>
+			Made by <a href="https://henrywu.tw">Henry Wu</a> / &copy; <span id="year"></span> MCSA
+		</footer>
+	</div>
+	<script>
+	document.getElementById('year').innerHTML = new Date().getFullYear()
+
+	let url = 'https://mcsa.tw/api'
+	if(window.location.search.includes('test')) {
+		url = 'https://script.google.com/macros/s/AKfycbzIVd5_7mu55op3RM7YtWMrSrEZG8FK4SOCZkJK7goSWkYefK9fuNWovWML8CK0QTKKjw/exec'
+	}
+
+	let xhr = new XMLHttpRequest()
+	xhr.onload = function() {
+		let html = ''
+		let res = JSON.parse(xhr.responseText)
+		res.data.forEach(item => {
+			let url = item.url
+			if(item.url == '' || item.url.toString().startsWith('#')) {
+				url = ''
+			}
+			if(item.type == 'button') {
+				html += `<a class="button" target="_blank" ${url ? 'href="'+url+'"' : ''}>${item.title}</a>`
+			}
+			else if(item.type == 'image') {
+				html += `<a class="clickable" target="_blank" ${url ? 'href="'+url+'"' : ''}>
+					<img class="image" src="${item.image}">
+				</a>`
+			}
+		})
+		document.querySelector('main').innerHTML = html
+		document.querySelector('main').classList.remove('loading')
+	};
+	xhr.open('GET', url, true)
+	xhr.send()
+	</script>
+</body>
+</html>
